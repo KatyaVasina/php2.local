@@ -1,7 +1,10 @@
 <?php
 require __DIR__ . '/autoload.php';
 
-$db = new \App\Db();
+$data = \App\Models\User::findAll();
 
+
+echo (App\Models\User::class);
+var_dump($data);
 
 

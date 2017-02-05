@@ -22,7 +22,7 @@ class Db
     }
 
     // выполняет переданный SQL-запрос и возвращает данные
-    public function query($sql)
+    public function query($sql, $class)
     {
         $sth = $this->dbh->prepare($sql); // подготавливаем запрос
         $res = $sth->execute();
@@ -30,9 +30,9 @@ class Db
         echo "</br>";
         var_dump($res);
 
-        $data = $sth->fetchAll();
+        $data = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         echo "</br>";
-        var_dump($data);
+        //var_dump($data);
 
         if (false !== $res){
             return $data;
