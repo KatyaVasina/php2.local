@@ -24,6 +24,8 @@ class Db
     // выполняет переданный SQL-запрос и возвращает данные
     public function query($sql, $class)
     {
+        echo "</br>";
+        echo $sql;
         $sth = $this->dbh->prepare($sql); // подготавливаем запрос
         $res = $sth->execute();
         //var_dump($sth);
